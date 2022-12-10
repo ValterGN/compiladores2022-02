@@ -1,0 +1,10 @@
+int batata;
+int mariola;
+
+mariola = 34;
+batata = 33;
+
+if(mariola <= batata){
+    batata = mariola;
+    batata = mariola = 123;
+}
