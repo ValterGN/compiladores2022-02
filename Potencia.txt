@@ -1,0 +1,15 @@
+/* Calculo de potência de um valor N por expoente Z: */
+ 
+int N;
+N = IN;
+int Z;
+Z = IN;
+int potencia;
+potencia = valor;
+int contador;
+contador = 1;
+while (contador < Z){
+   potencia = potencia*N;
+   contador = contador + 1;
+}
+OUT = potencia;
