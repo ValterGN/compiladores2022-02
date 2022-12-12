@@ -1,5 +1,3 @@
-/* Fatorial de um número N: */
-
 int N;
 N = IN;
 int fatorial;

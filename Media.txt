@@ -1,5 +1,3 @@
-/* Calculo de média de N elementos: */
- 
 int N;
 N = IN;
 int contador;

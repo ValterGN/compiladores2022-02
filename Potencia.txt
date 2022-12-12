@@ -1,5 +1,3 @@
-/* Calculo de potência de um valor N por expoente Z: */
- 
 int N;
 N = IN;
 int Z;

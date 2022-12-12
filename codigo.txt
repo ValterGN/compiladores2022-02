@@ -1,10 +1,10 @@
-int batata;
+int 2batata;
 int mariola;
 
-mariola = 34;
+mariola = 34.A;
 batata = 33;
 
-if(mariola <= batata){
+.se(mariola << batata){
     batata = mariola;
-    batata = mariola = 123;
+    batata = mariola @ 1A23;
 }
