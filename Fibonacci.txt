@@ -17,6 +17,5 @@ while(contador<=N){
        var1 = aux;
        OUT = var2;
    }
-   OUT = " ";
    contador = contador + 1;
 }
