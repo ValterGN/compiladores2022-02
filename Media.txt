@@ -1,0 +1,13 @@
+int N;
+N = IN;
+int contador;
+contador = 0;
+int media;
+media = 0;
+int val;
+while(contador < N){
+   val = IN;
+   media = media + val;
+}
+media = media/N;
+OUT = media;

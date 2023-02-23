@@ -1,0 +1,11 @@
+int N;
+N = IN;
+int fatorial;
+fatorial = 1;
+int contador;
+contador = 1;
+while(contador<=N){
+   fatorial = fatorial*contador;
+   contador = contador + 1;
+}
+OUT = fatorial;
