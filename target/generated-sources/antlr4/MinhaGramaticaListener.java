@@ -7,6 +7,16 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface MinhaGramaticaListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link MinhaGramaticaParser#bloco}.
+	 * @param ctx the parse tree
+	 */
+	void enterBloco(MinhaGramaticaParser.BlocoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MinhaGramaticaParser#bloco}.
+	 * @param ctx the parse tree
+	 */
+	void exitBloco(MinhaGramaticaParser.BlocoContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link MinhaGramaticaParser#comando}.
 	 * @param ctx the parse tree
 	 */
@@ -17,6 +27,36 @@ public interface MinhaGramaticaListener extends ParseTreeListener {
 	 */
 	void exitComando(MinhaGramaticaParser.ComandoContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link MinhaGramaticaParser#comentario}.
+	 * @param ctx the parse tree
+	 */
+	void enterComentario(MinhaGramaticaParser.ComentarioContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MinhaGramaticaParser#comentario}.
+	 * @param ctx the parse tree
+	 */
+	void exitComentario(MinhaGramaticaParser.ComentarioContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MinhaGramaticaParser#entrada}.
+	 * @param ctx the parse tree
+	 */
+	void enterEntrada(MinhaGramaticaParser.EntradaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MinhaGramaticaParser#entrada}.
+	 * @param ctx the parse tree
+	 */
+	void exitEntrada(MinhaGramaticaParser.EntradaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MinhaGramaticaParser#saida}.
+	 * @param ctx the parse tree
+	 */
+	void enterSaida(MinhaGramaticaParser.SaidaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MinhaGramaticaParser#saida}.
+	 * @param ctx the parse tree
+	 */
+	void exitSaida(MinhaGramaticaParser.SaidaContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link MinhaGramaticaParser#expressao}.
 	 * @param ctx the parse tree
 	 */
@@ -26,6 +66,16 @@ public interface MinhaGramaticaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpressao(MinhaGramaticaParser.ExpressaoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MinhaGramaticaParser#termo}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermo(MinhaGramaticaParser.TermoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MinhaGramaticaParser#termo}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermo(MinhaGramaticaParser.TermoContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MinhaGramaticaParser#declaracaoVar}.
 	 * @param ctx the parse tree
@@ -67,45 +117,55 @@ public interface MinhaGramaticaListener extends ParseTreeListener {
 	 */
 	void exitRepeticao(MinhaGramaticaParser.RepeticaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link MinhaGramaticaParser#expressaoLogica}.
+	 * Enter a parse tree produced by {@link MinhaGramaticaParser#funcao}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpressaoLogica(MinhaGramaticaParser.ExpressaoLogicaContext ctx);
+	void enterFuncao(MinhaGramaticaParser.FuncaoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link MinhaGramaticaParser#expressaoLogica}.
+	 * Exit a parse tree produced by {@link MinhaGramaticaParser#funcao}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpressaoLogica(MinhaGramaticaParser.ExpressaoLogicaContext ctx);
+	void exitFuncao(MinhaGramaticaParser.FuncaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link MinhaGramaticaParser#expressaoLogicaString}.
+	 * Enter a parse tree produced by {@link MinhaGramaticaParser#parametros}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpressaoLogicaString(MinhaGramaticaParser.ExpressaoLogicaStringContext ctx);
+	void enterParametros(MinhaGramaticaParser.ParametrosContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link MinhaGramaticaParser#expressaoLogicaString}.
+	 * Exit a parse tree produced by {@link MinhaGramaticaParser#parametros}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpressaoLogicaString(MinhaGramaticaParser.ExpressaoLogicaStringContext ctx);
+	void exitParametros(MinhaGramaticaParser.ParametrosContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link MinhaGramaticaParser#expressaoLogicaInt}.
+	 * Enter a parse tree produced by {@link MinhaGramaticaParser#corpoFuncao}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpressaoLogicaInt(MinhaGramaticaParser.ExpressaoLogicaIntContext ctx);
+	void enterCorpoFuncao(MinhaGramaticaParser.CorpoFuncaoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link MinhaGramaticaParser#expressaoLogicaInt}.
+	 * Exit a parse tree produced by {@link MinhaGramaticaParser#corpoFuncao}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpressaoLogicaInt(MinhaGramaticaParser.ExpressaoLogicaIntContext ctx);
+	void exitCorpoFuncao(MinhaGramaticaParser.CorpoFuncaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link MinhaGramaticaParser#expressaoLogicaReal}.
+	 * Enter a parse tree produced by {@link MinhaGramaticaParser#procedimento}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpressaoLogicaReal(MinhaGramaticaParser.ExpressaoLogicaRealContext ctx);
+	void enterProcedimento(MinhaGramaticaParser.ProcedimentoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link MinhaGramaticaParser#expressaoLogicaReal}.
+	 * Exit a parse tree produced by {@link MinhaGramaticaParser#procedimento}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpressaoLogicaReal(MinhaGramaticaParser.ExpressaoLogicaRealContext ctx);
+	void exitProcedimento(MinhaGramaticaParser.ProcedimentoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MinhaGramaticaParser#corpoProcedimento}.
+	 * @param ctx the parse tree
+	 */
+	void enterCorpoProcedimento(MinhaGramaticaParser.CorpoProcedimentoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MinhaGramaticaParser#corpoProcedimento}.
+	 * @param ctx the parse tree
+	 */
+	void exitCorpoProcedimento(MinhaGramaticaParser.CorpoProcedimentoContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MinhaGramaticaParser#atribuicao}.
 	 * @param ctx the parse tree
@@ -116,54 +176,4 @@ public interface MinhaGramaticaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAtribuicao(MinhaGramaticaParser.AtribuicaoContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link MinhaGramaticaParser#atribuicaoString}.
-	 * @param ctx the parse tree
-	 */
-	void enterAtribuicaoString(MinhaGramaticaParser.AtribuicaoStringContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link MinhaGramaticaParser#atribuicaoString}.
-	 * @param ctx the parse tree
-	 */
-	void exitAtribuicaoString(MinhaGramaticaParser.AtribuicaoStringContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link MinhaGramaticaParser#atribuicaoInt}.
-	 * @param ctx the parse tree
-	 */
-	void enterAtribuicaoInt(MinhaGramaticaParser.AtribuicaoIntContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link MinhaGramaticaParser#atribuicaoInt}.
-	 * @param ctx the parse tree
-	 */
-	void exitAtribuicaoInt(MinhaGramaticaParser.AtribuicaoIntContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link MinhaGramaticaParser#atribuicaoReal}.
-	 * @param ctx the parse tree
-	 */
-	void enterAtribuicaoReal(MinhaGramaticaParser.AtribuicaoRealContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link MinhaGramaticaParser#atribuicaoReal}.
-	 * @param ctx the parse tree
-	 */
-	void exitAtribuicaoReal(MinhaGramaticaParser.AtribuicaoRealContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link MinhaGramaticaParser#expressaoAritInt}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpressaoAritInt(MinhaGramaticaParser.ExpressaoAritIntContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link MinhaGramaticaParser#expressaoAritInt}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpressaoAritInt(MinhaGramaticaParser.ExpressaoAritIntContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link MinhaGramaticaParser#expressaoAritReal}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpressaoAritReal(MinhaGramaticaParser.ExpressaoAritRealContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link MinhaGramaticaParser#expressaoAritReal}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpressaoAritReal(MinhaGramaticaParser.ExpressaoAritRealContext ctx);
 }

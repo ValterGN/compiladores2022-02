@@ -16,6 +16,18 @@ public class MinhaGramaticaBaseListener implements MinhaGramaticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterBloco(MinhaGramaticaParser.BlocoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBloco(MinhaGramaticaParser.BlocoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterComando(MinhaGramaticaParser.ComandoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -28,6 +40,42 @@ public class MinhaGramaticaBaseListener implements MinhaGramaticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterComentario(MinhaGramaticaParser.ComentarioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitComentario(MinhaGramaticaParser.ComentarioContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEntrada(MinhaGramaticaParser.EntradaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEntrada(MinhaGramaticaParser.EntradaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSaida(MinhaGramaticaParser.SaidaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSaida(MinhaGramaticaParser.SaidaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterExpressao(MinhaGramaticaParser.ExpressaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -35,6 +83,18 @@ public class MinhaGramaticaBaseListener implements MinhaGramaticaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitExpressao(MinhaGramaticaParser.ExpressaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTermo(MinhaGramaticaParser.TermoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTermo(MinhaGramaticaParser.TermoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -88,49 +148,61 @@ public class MinhaGramaticaBaseListener implements MinhaGramaticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpressaoLogica(MinhaGramaticaParser.ExpressaoLogicaContext ctx) { }
+	@Override public void enterFuncao(MinhaGramaticaParser.FuncaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpressaoLogica(MinhaGramaticaParser.ExpressaoLogicaContext ctx) { }
+	@Override public void exitFuncao(MinhaGramaticaParser.FuncaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpressaoLogicaString(MinhaGramaticaParser.ExpressaoLogicaStringContext ctx) { }
+	@Override public void enterParametros(MinhaGramaticaParser.ParametrosContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpressaoLogicaString(MinhaGramaticaParser.ExpressaoLogicaStringContext ctx) { }
+	@Override public void exitParametros(MinhaGramaticaParser.ParametrosContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpressaoLogicaInt(MinhaGramaticaParser.ExpressaoLogicaIntContext ctx) { }
+	@Override public void enterCorpoFuncao(MinhaGramaticaParser.CorpoFuncaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpressaoLogicaInt(MinhaGramaticaParser.ExpressaoLogicaIntContext ctx) { }
+	@Override public void exitCorpoFuncao(MinhaGramaticaParser.CorpoFuncaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpressaoLogicaReal(MinhaGramaticaParser.ExpressaoLogicaRealContext ctx) { }
+	@Override public void enterProcedimento(MinhaGramaticaParser.ProcedimentoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpressaoLogicaReal(MinhaGramaticaParser.ExpressaoLogicaRealContext ctx) { }
+	@Override public void exitProcedimento(MinhaGramaticaParser.ProcedimentoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCorpoProcedimento(MinhaGramaticaParser.CorpoProcedimentoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCorpoProcedimento(MinhaGramaticaParser.CorpoProcedimentoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -143,66 +215,6 @@ public class MinhaGramaticaBaseListener implements MinhaGramaticaListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAtribuicao(MinhaGramaticaParser.AtribuicaoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAtribuicaoString(MinhaGramaticaParser.AtribuicaoStringContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAtribuicaoString(MinhaGramaticaParser.AtribuicaoStringContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAtribuicaoInt(MinhaGramaticaParser.AtribuicaoIntContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAtribuicaoInt(MinhaGramaticaParser.AtribuicaoIntContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAtribuicaoReal(MinhaGramaticaParser.AtribuicaoRealContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAtribuicaoReal(MinhaGramaticaParser.AtribuicaoRealContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpressaoAritInt(MinhaGramaticaParser.ExpressaoAritIntContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpressaoAritInt(MinhaGramaticaParser.ExpressaoAritIntContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterExpressaoAritReal(MinhaGramaticaParser.ExpressaoAritRealContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpressaoAritReal(MinhaGramaticaParser.ExpressaoAritRealContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

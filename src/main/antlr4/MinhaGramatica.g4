@@ -5,6 +5,7 @@ fragment ALFANUM: [a-zA-Z0-9];
 fragment DIGITO: [0-9];
 PalavraChave: 'if' | 'else' | 'while' | 'func' | 'proc' | 'return' | 'IN' | 'OUT' | ';';
 Tipo: 'int' | 'double' | 'bool' | 'string';
+BOOLEAN: 'true' | 'false';
 OpArit: '+' | '-' | '*' | '/' | '%' | '**' | '=';
 OpRel: '>' | '<' | '>=' | '<=' | '==' | '!=';
 AChave: '{';
@@ -21,25 +22,21 @@ ConstSTRING: '"'(ALFANUM)+'"';
 ErrorChar: . ;
 LAMBDA: ;
 
-comando : expressao comando | expressao;
-expressao: declaracaoVar | condicional | repeticao | atribuicao;
-
-declaracaoVar: Tipo Id ';';
-condicional: 'if' AParenteses expressaoLogica FParenteses AChave expressao FChave condicionalSenao;
-condicionalSenao: 'else' AChave expressao FChave | LAMBDA;
-
-repeticao: 'while' AParenteses expressaoLogica FParenteses AChave expressao FChave;
-
-expressaoLogica: ID OpRel ID | expressaoLogicaString | expressaoLogicaInt | expressaoLogicaReal;
-expressaoLogicaString: ID OpRel ConstSTRING | ConstSTRING OpRel ID | ID OpRel ID;
-expressaoLogicaInt: ID OpRel ConstINT | ConstINT OpRel ID | ID OpRel ID;
-expressaoLogicaReal: ID OpRel ConstREAL | ConstREAL OpRel ID | ID OpRel ID;
-
-atribuicao: atribuicaoString | atribuicaoInt | atribuicaoReal;
-
-atribuicaoString: ID OpIgual ConstSTRING ';';
-atribuicaoInt: ID OpIgual ConstINT ';' | ID OpIgual expressaoAritInt ';';
-atribuicaoReal: ID OpIgual ConstREAL ';' | ID OpIgual expressaoAritReal ';';
-
-expressaoAritInt: ConstINT OpArit ConstINT | ID OpArit ConstINT | ConstINT OpArit ID | ID OpArit ID;
-expressaoAritReal: ConstREAL OpArit ConstREAL | ID OpArit ConstREAL | ConstREAL OpArit ID | ID OpArit ID;
+bloco: (comando)+;
+comando : declaracaoVar | condicional | repeticao | atribuicao | entrada | saida | comentario |
+funcao| procedimento;
+comentario: AComentario (ConstSTRING)* FComentario;
+entrada: ID '=' 'IN' ';';
+saida: 'OUT' '=' expressao ';';
+expressao: (AParenteses)* '!'* termo (FParenteses)* ((OpArit| OpRel) expressao)*;
+termo: ConstREAL | ConstINT | ConstSTRING | ID | BOOLEAN;
+declaracaoVar: Tipo ID ';';
+condicional: 'if' AParenteses expressao FParenteses AChave bloco FChave condicionalSenao;
+condicionalSenao: 'else' AChave bloco FChave | LAMBDA;
+repeticao: 'while' AParenteses expressao FParenteses AChave bloco FChave;
+funcao: 'func' Tipo ID AParenteses parametros FParenteses AChave corpoFuncao FChave;
+parametros: Tipo ID ';' | Tipo ID;
+corpoFuncao: comando corpoFuncao | comando 'return' expressao ';';
+procedimento: 'proc' ID AParenteses parametros FParenteses AChave corpoProcedimento FChave;
+corpoProcedimento: comando corpoFuncao | comando;
+atribuicao: ID '=' expressao ';';
