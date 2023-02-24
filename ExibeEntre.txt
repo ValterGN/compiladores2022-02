@@ -1,0 +1,10 @@
+int A;
+A = IN;
+int B;
+B = IN;
+int contador;
+contador = A;
+while (contador < B){
+   contador = contador + 1;
+   OUT = contador;
+}
