@@ -1,9 +1,5 @@
 int N;
 N = IN;
-
-int bolinha;
-int bolinha;
-
 int fatorial;
 fatorial = 1;
 int contador;
