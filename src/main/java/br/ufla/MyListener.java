@@ -68,7 +68,9 @@ public class MyListener implements MinhaGramaticaListener{
 
     @Override
     public void enterEntrada(MinhaGramaticaParser.EntradaContext ctx) {
-
+        if(!variavelExiste(ctx.ID().getText())){
+            System.out.println("Variável " + ctx.ID().getText() + " não foi declarada");
+        }
     }
 
     @Override
