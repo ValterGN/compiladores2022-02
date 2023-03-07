@@ -5,13 +5,14 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.IOException;
 
 public class Main {
 
     public static void  main (String[] args){
-        String filename = "/home/luiz/teste/sint.txt";
+        String filename = "./Fatorial.txt";
         try{
             CharStream input = CharStreams.fromFileName(filename);
             MinhaGramaticaLexer lexer = new MinhaGramaticaLexer(input);
@@ -20,7 +21,12 @@ public class Main {
 
             ParseTree ast = parser.bloco();
 
+            MyListener listener = new MyListener();
+            ParseTreeWalker walker = new ParseTreeWalker();
+
             System.out.println(ast.toStringTree());
+
+            walker.walk(listener, ast);
 //            Token token;
 //            while (!lexer._hitEOF){
 //                token = lexer.nextToken();
