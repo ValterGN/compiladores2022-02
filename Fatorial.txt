@@ -1,7 +1,8 @@
 int N;
 N = IN;
+string teste;
 int fatorial;
-fatorial = 1;
+fatorial = teste;
 int contador;
 contador = 1;
 while(contador<=N){

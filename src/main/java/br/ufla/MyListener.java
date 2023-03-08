@@ -2,6 +2,7 @@ package br.ufla;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.ArrayList;
@@ -11,6 +12,23 @@ import java.util.Map;
 
 public class MyListener implements MinhaGramaticaListener{
     List<HashMap<String, String>> escopos = new ArrayList<>();
+
+    private String[] operadoresAritimeticos = {"+","-","*","/","%","**","="};
+
+    private String[] operadoresRelacionais = {">","<",">=","<=","==","!="};
+
+
+    private boolean operadorAritimetico(String op){
+        for(String operador : operadoresAritimeticos)
+            if(op.equals(operador)) return true;
+        return false;
+    }
+
+    private boolean operadorRelaciona(String op){
+        for(String operador : operadoresRelacionais)
+            if(op.equals(operador)) return true;
+        return false;
+    }
 
     private void addVariavel(String id, String tipo){
         escopos.get(escopos.size()-1).put(id, tipo);
@@ -69,7 +87,7 @@ public class MyListener implements MinhaGramaticaListener{
     @Override
     public void enterEntrada(MinhaGramaticaParser.EntradaContext ctx) {
         if(!variavelExiste(ctx.ID().getText())){
-            System.out.println("Variável " + ctx.ID().getText() + " não foi declarada");
+            System.out.println("ERRO SEMANTICO: " + ctx.getStart().getLine() + " - " + "Variável " + ctx.ID().getText() + " não foi declarada");
         }
     }
 
@@ -113,7 +131,7 @@ public class MyListener implements MinhaGramaticaListener{
         if(!variavelExiste(ctx.ID().getText())){
             addVariavel(ctx.ID().getText(), ctx.Tipo().getText());
         } else {
-            System.out.println("Variável " + ctx.ID().getText() + " já foi declarada!!!");
+            System.out.println("ERRO SEMANTICO: " + ctx.getStart().getLine() + " - " + "Variável " + ctx.ID().getText() + " já foi declarada!!!");
         }
     }
 
@@ -205,7 +223,27 @@ public class MyListener implements MinhaGramaticaListener{
     @Override
     public void enterAtribuicao(MinhaGramaticaParser.AtribuicaoContext ctx) {
         if(!variavelExiste(ctx.ID().getText())){
-            System.out.println("Variável " + ctx.ID().getText() + " não foi declarada");
+            System.out.println("ERRO SEMANTICO: " + ctx.getStart().getLine() + " - " + "Variável " + ctx.ID().getText() + " não foi declarada");
+        }else{
+            String tipoId = tipoDaVariavel(ctx.ID().getText());
+            ParseTree valor = ctx.getChild(2);
+                if(valor.getChildCount() == 1){
+                    String tipoValor = tipoDaVariavel(valor.getChild(0).getText());
+                    if(!tipoId.equals(tipoValor) && tipoValor!=null)
+                        System.out.println("ERRO SEMANTICO: " + ctx.getStart().getLine() + " - " + ctx.ID().getText() + " do tipo " + 
+                            tipoId + " não pode ser atribuído a uma variavel do tipo " + tipoValor);
+                }else if(valor.getChildCount() > 1){
+                    String tipoValor1 = tipoDaVariavel(valor.getChild(0).getText());
+                    String operador = valor.getChild(1).getText();
+                    String tipoValor2 = tipoDaVariavel(valor.getChild(2).getText());
+
+                    if(!tipoId.equals(tipoValor1) && tipoValor1!=null)
+                        System.out.println("ERRO SEMANTICO: " + ctx.getStart().getLine() + " - " + ctx.ID().getText() + " do tipo " + 
+                            tipoId + " não pode ser atribuído a uma variavel do tipo " + tipoValor1);
+                    else if(!tipoId.equals(tipoValor2) && tipoValor2!=null)
+                        System.out.println("ERRO SEMANTICO: " + ctx.getStart().getLine() + " - " + ctx.ID().getText() + " do tipo " + 
+                            tipoId + " não pode ser atribuído a uma variavel do tipo " + tipoValor2);
+                }
         }
 
     }
@@ -227,11 +265,9 @@ public class MyListener implements MinhaGramaticaListener{
 
     @Override
     public void enterEveryRule(ParserRuleContext parserRuleContext) {
-
     }
 
     @Override
     public void exitEveryRule(ParserRuleContext parserRuleContext) {
-
     }
 }
