@@ -1,12 +1,13 @@
 int N;
 N = IN;
 string teste;
-int fatorial;
-fatorial = teste;
+int N;
 int contador;
-contador = 1;
+contador = teste;
 while(contador<=N){
    fatorial = fatorial*contador;
    contador = contador + 1;
+   int testeEscopo;
 }
+int testeEscopo;
 OUT = fatorial;
